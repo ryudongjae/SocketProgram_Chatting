@@ -17,6 +17,7 @@ public class ChatHandler extends TextWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         String payload = message.getPayload();
+        log.info("payload {}", payload);
         Message chatMessage = objectMapper.readValue(payload,Message.class);
         ChatRoom room = chatService.findRoomById(chatMessage.getRoomId());
         room.handlerAction(session,chatMessage,chatService);

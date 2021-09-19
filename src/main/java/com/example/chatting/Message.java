@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class Message {
     public enum MessageType {
-        ENTER,TALK
+        ENTER, TALK
     }
 
     private MessageType messageType;
